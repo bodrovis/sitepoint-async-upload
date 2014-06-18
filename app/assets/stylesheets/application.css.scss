@@ -1,0 +1,26 @@
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+#photos-list {
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+  clear: both;
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    min-height: 272px;
+    max-height: 272px;
+    margin-bottom: 10px;
+    text-align: center;
+    img {
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 0;
+      height: 40px;
+      overflow: hidden;
+    }
+  }
+}

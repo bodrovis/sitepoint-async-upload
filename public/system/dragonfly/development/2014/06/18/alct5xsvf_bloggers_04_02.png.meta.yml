@@ -1,0 +1,10 @@
+---
+name: bloggers_04_02.png
+model_class: Photo
+model_attachment: image
+analyser_cache:
+  image_properties:
+    format: png
+    width: 149
+    height: 238
+  format: png
