@@ -4,12 +4,17 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 
+gem 'thin'
+
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 gem 'rack-cache'
 gem 'bootstrap-sass'
 gem 'remotipart', '~> 1.2'
 gem 'jquery-fileupload-rails', github: 'Springest/jquery-fileupload-rails'
+
+gem 'compass-rails'
+gem 'compass'
 
 group :development do
   gem 'sqlite3'

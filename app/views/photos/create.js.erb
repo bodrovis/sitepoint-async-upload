@@ -1,5 +1,6 @@
 <% if @photo.new_record? %>
-alert('The photo could not be uploaded: <%= j @photo.errors.full_messages.join(', ').html_safe %>');
+alert('<%= @photo.image_name %> could not be uploaded: <%= j @photo.errors.full_messages.join(',
+').html_safe %>');
 <% else %>
 $('#photos-list').prepend('<%= j render @photo %>');
 <% end %>

@@ -4,6 +4,11 @@ class PhotosController < ApplicationController
     @photo = Photo.new
   end
 
+  def new_multiple
+    @photos = Photo.order('created_at DESC')
+    @photo = Photo.new
+  end
+
   def create
     respond_to do |format|
       @photo = Photo.new(photo_params)

@@ -1,5 +1,8 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
+@import "compass/css3/transition";
+@import "compass/css3/opacity";
+@import "compass/css3/border-radius";
 
 #photos-list {
   padding: 0;
@@ -23,4 +26,38 @@
       overflow: hidden;
     }
   }
+}
+
+.progress-wrapper {
+  display: none;
+}
+
+#dropzone {
+  background: palegreen;
+  width: 150px;
+  text-align: center;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid darken(palegreen, 10%);
+  @include border-radius(10px);
+}
+
+#dropzone.in {
+  width: 600px;
+  height: 200px;
+  line-height: 200px;
+  font-size: larger;
+}
+
+#dropzone.hover {
+  background: lawngreen;
+  border: 1px solid darken(lawngreen, 10%);
+}
+
+#dropzone.fade {
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease-out);
+  @include opacity(1);
 }

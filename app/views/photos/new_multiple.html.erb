@@ -1,0 +1,100 @@
+<h1>List of photos</h1>
+
+<ul class="row" id="photos-list">
+  <%= render @photos %>
+</ul>
+
+<h3>Upload multiple photos</h3>
+<div id="dropzone" class="fade">Drop files here</div>
+
+<%= form_for @photo do |f| %>
+  <div class="form-group">
+    <%= f.label :author, 'Choose files here' %>
+    <%= f.text_field :author, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, required: true, multiple: true, name: 'photo[image]' %>
+  </div>
+
+  <div class="progress-wrapper">
+    <p>Bitrate: <span class="bitrate"></span></p>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar">
+        0%
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    var multiple_photos_form = $('#new_photo');
+    var wrapper = multiple_photos_form.find('.progress-wrapper');
+    var bitrate = wrapper.find('.bitrate');
+    var progress_bar = wrapper.find('.progress-bar');
+
+    multiple_photos_form.fileupload({
+      dataType: 'script',
+      dropZone: $('#dropzone'),
+      add: function (e, data) {
+        types = /(\.|\/)(gif|jpe?g|png|bmp)$/i;
+        file = data.files[0];
+        if (types.test(file.type) || types.test(file.name)) {
+          data.submit();
+        }
+        else { alert(file.name + " must be GIF, JPEG, BMP or PNG file"); }
+      }
+    });
+
+    multiple_photos_form.on('fileuploadstart', function() {
+      wrapper.show();
+    });
+
+    multiple_photos_form.on('fileuploaddone', function() {
+      wrapper.hide();
+      progress_bar.width(0);
+    });
+
+    multiple_photos_form.on('fileuploadsubmit', function (e, data) {
+      console.log('submit');
+      var author_field = $('#photo_author');
+      data.formData = {'photo[author]': author_field.val()};
+    });
+
+    multiple_photos_form.on('fileuploadprogressall', function (e, data) {
+      bitrate.text((data.bitrate / 1024).toFixed(2) + 'Kb/s');
+      var progress = parseInt(data.loaded / data.total * 100, 10);
+      progress_bar.css('width', progress + '%').text(progress + '%');
+    });
+
+    $(document).bind('dragover', function (e) {
+      var dropZone = $('#dropzone'),
+              timeout = window.dropZoneTimeout;
+      if (!timeout) {
+        dropZone.addClass('in');
+      } else {
+        clearTimeout(timeout);
+      }
+      var found = false,
+              node = e.target;
+      do {
+        if (node === dropZone[0]) {
+          found = true;
+          break;
+        }
+        node = node.parentNode;
+      } while (node != null);
+      if (found) {
+        dropZone.addClass('hover');
+      } else {
+        dropZone.removeClass('hover');
+      }
+      window.dropZoneTimeout = setTimeout(function () {
+        window.dropZoneTimeout = null;
+        dropZone.removeClass('in hover');
+      }, 100);
+    });
+  });
+</script>
