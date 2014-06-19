@@ -61,3 +61,7 @@
   @include transition-timing-function(ease-out);
   @include opacity(1);
 }
+
+#footer {
+  margin-top: 60px;
+}
