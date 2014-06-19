@@ -1,5 +1,5 @@
 Source code for the
-[Asyncronous File Uploading with Rails]() article on
+[Asynchronous File Uploading with Rails]() article on
  SitePoint,
 created by Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com)).
 

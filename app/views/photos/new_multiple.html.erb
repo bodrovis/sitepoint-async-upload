@@ -9,12 +9,12 @@
 
 <%= form_for @photo do |f| %>
   <div class="form-group">
-    <%= f.label :author, 'Choose files here' %>
+    <%= f.label :author %>
     <%= f.text_field :author, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :image %>
+    <%= f.label :image, 'Choose files here' %>
     <%= f.file_field :image, required: true, multiple: true, name: 'photo[image]' %>
   </div>
 
