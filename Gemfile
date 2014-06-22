@@ -8,7 +8,6 @@ gem 'thin'
 
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
-gem 'rack-cache'
 gem 'bootstrap-sass'
 gem 'remotipart', '~> 1.2'
 gem 'jquery-fileupload-rails', github: 'Springest/jquery-fileupload-rails'
@@ -25,6 +24,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'rack-cache'
 end
 
 # Use SCSS for stylesheets

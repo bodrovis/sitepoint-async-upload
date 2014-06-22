@@ -58,9 +58,7 @@
     });
 
     multiple_photos_form.on('fileuploadsubmit', function (e, data) {
-      console.log('submit');
-      var author_field = $('#photo_author');
-      data.formData = {'photo[author]': author_field.val()};
+      data.formData = {'photo[author]': $('#photo_author').val()};
     });
 
     multiple_photos_form.on('fileuploadprogressall', function (e, data) {
