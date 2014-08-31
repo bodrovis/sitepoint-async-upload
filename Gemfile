@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 
 gem 'thin'
 
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+
 gem 'dragonfly'
 gem 'dragonfly-s3_data_store'
 gem 'bootstrap-sass'
