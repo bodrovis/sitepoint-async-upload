@@ -23,7 +23,7 @@ and add it to config/secrets.yml
 Finally run:
 
 ```
-rake heroku:secrets
+RAILS_ENV=production rake heroku:secrets
 ```
 
 Change bucket name in config/initializers/dragonfly.rb with your own bucket name.
