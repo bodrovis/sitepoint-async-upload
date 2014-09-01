@@ -5,7 +5,7 @@ Dragonfly.app.configure do
   plugin :imagemagick
 
   protect_from_dos_attacks true
-  secret "ccf833cf822deba98a3e4e39cfdd7dfe9a11bbf7007c24cc862723caf6af0947"
+  secret Rails.application.secrets.secret_key_base
 
   url_format "/media/:job/:name"
 
@@ -16,8 +16,8 @@ Dragonfly.app.configure do
   else
     datastore :s3,
               bucket_name: 'bodrov_sitepoint',
-              access_key_id: ENV['AWS_KEY'],
-              secret_access_key: ENV['AWS_SEC'],
+              access_key_id: Rails.application.secrets.aws_access_key_id,
+              secret_access_key: Rails.application.secrets.aws_secret_key,
               url_scheme: 'https'
   end
 end
