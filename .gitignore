@@ -17,5 +17,3 @@
 
 .idea/
 /public/system/dragonfly/development
-
-config/secrets.yml
